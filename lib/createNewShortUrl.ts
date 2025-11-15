@@ -18,7 +18,7 @@ export default async function createNewShortUrl(
   const existing = await linksCollection.findOne({ alias }); //checking to see if the alias is already in the db
 
   if (existing) {
-    throw new Error("ALIAS_TAKEN");
+    throw new Error("alias is taken");
   }
 
   const res = await linksCollection.insertOne(doc);

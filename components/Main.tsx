@@ -150,11 +150,7 @@ export default function Main() {
             setShortUrl(`https://mp-5-lake-beta.vercel.app/${result.alias}`);
         
           } catch (err: any) {
-            if (err.message === "ALIAS_TAKEN") {
-              alert("Alias already exists, please choose another alias.");
-            } else {
-              alert("Something went wrong.");
-            }
+            alert("Alias already exists, please choose another alias.");
           }
     };
     
