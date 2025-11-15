@@ -133,20 +133,29 @@ export default function Main() {
     };
 
     const handleShorten = async () => {
-        if (!inputValue) return alert("Enter a URL");
-        if (!inputAlias) return alert("Enter an alias");
-    
-        if (
-          !inputValue.startsWith("http://") &&
-          !inputValue.startsWith("https://")
-        ) {
-          alert("URL must start with http:// or https://");
-          return;
-        }
-    
-        const result = await createNewShortUrl(inputValue, inputAlias);
-    
-        setShortUrl(`https://mp-5-lake-beta.vercel.app/${result.alias}`);
+        try {
+            if (!inputValue) return alert("Enter a URL");
+            if (!inputAlias) return alert("Enter an alias");
+        
+            if (
+              !inputValue.startsWith("http://") &&
+              !inputValue.startsWith("https://")
+            ) {
+              alert("URL must start with http:// or https://");
+              return;
+            }
+        
+            const result = await createNewShortUrl(inputValue, inputAlias);
+        
+            setShortUrl(`https://mp-5-lake-beta.vercel.app/${result.alias}`);
+        
+          } catch (err: any) {
+            if (err.message === "alias is taken") {
+              alert("Alias already exists, please choose another alias.");
+            } else {
+              alert("Something went wrong.");
+            }
+          }
     };
     
 
