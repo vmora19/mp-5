@@ -146,7 +146,7 @@ export default function Main() {
     
         const result = await createNewShortUrl(inputValue, inputAlias);
     
-        setShortUrl(`https://cs391-url-shortener.vercel.app/${result.alias}`);
+        setShortUrl(`https://mp-5-lake-beta.vercel.app/${result.alias}`);
     };
     
 
@@ -174,7 +174,7 @@ export default function Main() {
 
                 <StyledDiv3>
                     <StyledP>
-                        https://cs391-url-shortener.vercel.app/
+                    https://mp-5-lake-beta.vercel.app/
                     </StyledP>
                     <StyledInput2
                         type="text"
