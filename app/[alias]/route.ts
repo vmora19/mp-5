@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import getCollection, { LINKS_COLLECTION } from "@/db";
 
 export async function GET(
-  req: Request,
-  { params }: { params: { alias: string } }
+  req: NextRequest,
+  context: { params: Promise<{ alias: string }> }
 ) {
-  const alias = params.alias;
+  const { alias } = await context.params;
 
   const linksCollection = await getCollection(LINKS_COLLECTION);
 
